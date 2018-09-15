@@ -1,0 +1,30 @@
+<body>
+    <div class="container">
+        <header>
+            <h1>Users List</h1>
+        </header>
+
+        <table class="table">
+            <thead>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Gender</th>
+                <th>Date Of Birth</th>
+            </thead>
+            <tbody>
+                {{ #each eits }}
+                    {{> eit }}
+                {{ /each }}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<template name="eit">
+    <tr>
+        <td>{{firstname}}</td>
+        <td>{{lastname}}</td>
+        <td>{{gender}}</td>
+        <td>{{dateofbirth}}</td>
+    </tr>
+</template>
