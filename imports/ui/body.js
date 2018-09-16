@@ -2,7 +2,7 @@ import { Template } from 'meteor/templating';
 
 import { Eits } from '../api/eits.js';
 
-// import './eit.js';
+import './eit.js';
 import './body.html';
  
 Template.body.helpers({
@@ -10,12 +10,7 @@ Template.body.helpers({
         // Show newest eits at the top
         return Eits.find({}, { sort: { createdAt: -1 } });
     },
-
-//   eits: [
-//     { firstname: 'Name 1', lastname: 'alexis', gender: 'Masculin', dateofbirth: '12/05/98' },
-//     { firstname: 'Name 2', lastname: 'alexis', gender: 'Masculin', dateofbirth: '12/05/98' },
-//     { firstname: 'Name 3', lastname: 'alexis', gender: 'Masculin', dateofbirth: '12/05/98' },
-//   ],
+    
 });
 
 Template.body.events({
