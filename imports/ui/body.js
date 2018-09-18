@@ -7,6 +7,8 @@ import { Eits } from '../api/eits.js';
 import './eit.js';
 import './body.html';
 
+var eits_selected = [];
+
 Template.body.onCreated(function bodyOnCreated() {
     this.state = new ReactiveDict();
 });
@@ -74,6 +76,14 @@ Template.body.events({
     'change .hide-completed input'(event, instance) {
         instance.state.set('hideCompleted', event.target.checked);
     },
+    'change .toggle-selected'(event) {
+        const target = event.target;
+        if (target.checked) {
+            eits_selected.push(this._id);
+        }else{
+            eits_selected.splice(eits_selected.indexOf(this._id), 1);
+        }
+    },
     'click .edit'() {
         dataEit = Eits.findOne({_id:this._id});
         form = document.querySelector('form');
@@ -87,10 +97,8 @@ Template.body.events({
         form.className = 'edit-eit';
         // form.boutton.value = 'Update';
     },
-    'click button.deleteall'() {
-        // console.log('Hi try');
-        // Meteor.call('eits.removeAll', this._id, this.checked);
-        Eits.remove(this._id, { checked: { $lt: true } });
+    'click button.deleteBtn'(event) {
+        Meteor.call('eits.deleteselected', eits_selected);
     },
 
 });

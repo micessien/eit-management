@@ -29,25 +29,15 @@ Meteor.methods({
     'eits.remove'(eitId) {
         check(eitId, String);
 
+        // Make sure the user is logged in before inserting a task
+        if (!Meteor.userId()) {
+            throw new Meteor.Error('not-authorized');
+        }
         // if(eitId.owner !== Meteor.userId()) {
         //     throw new Meteor.Error('not-authorized');
         // }
 
         Eits.remove(eitId);
-    },
-    // 'eits.removeAll'(eitId, checked) {
-    //     check(eitId, String);
-    //     check(checked, String);
-
-    //     Eits.remove(eitId, { checked: { $ne: true } });
-    // },
-    'eits.setChecked'(eitId, setChecked) {
-        check(eitId, String);
-        check(setChecked, Boolean);
-
-        Eits.update(eitId, {
-            $set: { checked: setChecked }
-        });
     },
     'eits.edit'(eitId, firstname, lastname, gender, dateofbirth) {
         check(eitId, String);
@@ -63,6 +53,16 @@ Meteor.methods({
         Eits.update(eitId, {
             $set: { firstname: firstname, lastname: lastname, gender: gender, dateofbirth: dateofbirth }
         });
+    },
+    'eits.deleteselected'(eits_selected) {
+        // Make sure the user is logged in before inserting a task
+        if (!Meteor.userId()) {
+            throw new Meteor.Error('not-authorized');
+        }
+
+        for (var i = 0; i < eits_selected.length; i++) {
+            Eits.remove(eits_selected[i]);
+        }
     },
 
 });

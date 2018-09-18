@@ -1,7 +1,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>Add New users ({{incompleteCount}})</h1>
+            <h1>Eits Management ({{incompleteCount}})</h1>
             
             {{> loginButtons}}
 
@@ -35,10 +35,7 @@
             {{/if}}
 
             <h2>Users List</h2>
-            <label class="hide-completed">
-                <input type="checkbox" />
-                Hide Completed Eits
-            </label> | {{> buttonDelete }}
+            {{> buttonDelete }}
         </header>
 
         <table class="table">

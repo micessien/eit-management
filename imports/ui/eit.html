@@ -1,10 +1,11 @@
 <template name="buttonDelete">
-    <button class="deleteall btn btn-default">Remove all check</button>
+    <!-- <button class="deleteall btn btn-default">Remove all check</button> -->
+    <button class="deleteBtn btn btn-default">Remove all check</button>
 </template>
 
 <template name="eit">
-    <tr class="{{#if checked}}checked{{/if}}">
-        <td><input type="checkbox" checked="{{checked}}" class="toggle-checked" /></td>
+    <tr>
+        <td><input type="checkbox" checked="{{checked}}" class="toggle-selected" /></td>
         <td>{{firstname}}</td>
         <td>{{lastname}}</td>
         <td>{{gender}}</td>
