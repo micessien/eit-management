@@ -15,11 +15,6 @@ Template.body.onCreated(function bodyOnCreated() {
  
 Template.body.helpers({
     eits() {
-        const instance = Template.instance();
-        if (instance.state.get('hideCompleted')) {
-            // If hide completed is checked, filter eits
-            return Eits.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
-        }
         // Otherwise, return all of the eits
         return Eits.find({}, { sort: { createdAt: -1 } });
     },
@@ -72,9 +67,6 @@ Template.body.events({
         target.dateofbirth.value = '';
         target.eitid.value = '';
         target.className = 'new-eit';
-    },
-    'change .hide-completed input'(event, instance) {
-        instance.state.set('hideCompleted', event.target.checked);
     },
     'change .toggle-selected'(event) {
         const target = event.target;

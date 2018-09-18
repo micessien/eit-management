@@ -1,15 +1,17 @@
 <template name="buttonDelete">
-    <!-- <button class="deleteall btn btn-default">Remove all check</button> -->
-    <button class="deleteBtn btn btn-default">Remove all check</button>
+    {{#if currentUser }}
+        <button class="deleteBtn btn btn-default">Remove all check</button>
+    {{/if}}
 </template>
 
 <template name="eit">
     <tr>
-        <td><input type="checkbox" checked="{{checked}}" class="toggle-selected" /></td>
+        <td>{{#if currentUser }}<input type="checkbox" checked="{{checked}}" class="toggle-selected" />{{/if}}</td>
         <td>{{firstname}}</td>
         <td>{{lastname}}</td>
         <td>{{gender}}</td>
         <td>{{dateofbirth}}</td>
-        <td><button class="delete btn btn-danger">Delete</button> | <button class="edit btn btn-success">Edit</button> | <strong>Added by <span class="text-success">{{username}}</span></strong></td>
+        <td><button class="delete btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Del</button> {{#if currentUser }}| <button class="edit btn btn-success"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+| {{/if}}<strong>By <span class="text-success">{{username}}</span></strong></td>
     </tr>
 </template>

@@ -1,7 +1,31 @@
 body {
   padding: 10px;
   font-family: sans-serif;
+  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  margin-top: 3%;
+  padding: 3%;
+  color: #ffffff;
 }
 table{
-  margin-top: 50px;
+  margin-top: 30px;
+}
+a.login-link-text{
+  color: #ffffff;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+div#login-buttons{
+  padding-bottom: 20px
+}
+
+button.btn-default {
+  border: none;
+  border-radius: 1.5rem;
+  padding: 2%;
+  width: 40%;
+  background: #f8f9fa;
+  font-weight: bold;
+  color: #383d41;
+  cursor: pointer;
 }
