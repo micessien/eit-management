@@ -21,3 +21,4 @@ autopublish@1.0.7             # Publish all data to the clients (for prototyping
 reactive-dict
 accounts-ui
 accounts-password
+twbs:bootstrap

@@ -87,5 +87,10 @@ Template.body.events({
         form.className = 'edit-eit';
         // form.boutton.value = 'Update';
     },
+    'click button.deleteall'() {
+        // console.log('Hi try');
+        // Meteor.call('eits.removeAll', this._id, this.checked);
+        Eits.remove(this._id, { checked: { $lt: true } });
+    },
 
 });

@@ -35,6 +35,12 @@ Meteor.methods({
 
         Eits.remove(eitId);
     },
+    // 'eits.removeAll'(eitId, checked) {
+    //     check(eitId, String);
+    //     check(checked, String);
+
+    //     Eits.remove(eitId, { checked: { $ne: true } });
+    // },
     'eits.setChecked'(eitId, setChecked) {
         check(eitId, String);
         check(setChecked, Boolean);
